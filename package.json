@@ -1,0 +1,25 @@
+{
+  "name": "@ifcanduela/vue-svg-loader",
+  "version": "0.0.1",
+  "description": "Simple SVG-as-component loader for Vue 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifcanduela/vue-svg-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "loader",
+    "vue",
+    "svg"
+  ],
+  "author": "IF Canduela",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ifcanduela/vue-svg-loader/issues"
+  },
+  "homepage": "https://github.com/ifcanduela/vue-svg-loader#readme"
+}
