@@ -7,29 +7,41 @@ This loader does not do any cleanup or optimization by itself; it's meant to be
 used after `svgo-loader` has removed markup like `<?xml`, `<!doctype` and
 comments.
 
+## Installation
+
+Add it to your development dependencies:
+
+```sh
+npm i -D @ifcanduela/vue-svg-loader
+```
+
 ## Recommended usage
 
 Add a `oneOf` rule to the `module.rules` list:
 
 ```js
 module: {
-    rules: [
+  rules: [
+    {
+      test: /\.svg$/,
+      oneOf: [
         {
-            test: /\.svg$/,
-            oneOf: [
-                {
-                    resourceQuery: /(vue)/,
-                    use: ["vue-loader", "vue-inline-svg-loader", "svgo-loader"]
-                },
-                { type: "asset" }
-            ],
+            resourceQuery: /(vue)/,
+            use: [
+              "vue-loader",
+              "@ifcanduela/vue-svg-loader",
+              "svgo-loader",
+            ]
         },
-    ],
+        { type: "asset" }
+      ],
+    },
+  ],
 },
 ```
 
-Import SVGs in your Vue components and use the `vue` or `inline` querystring
-parameters to convert them into components:
+Import SVGs in your Vue components and add `vue` querystring
+parameter to convert them into components:
 
 ```html
 <script setup>
@@ -38,4 +50,5 @@ parameters to convert them into components:
 ```
 
 The query string (`?vue`) will instruct webpack to use the `vue-inline-svg-loader` and turn
-the SVG into a valid Vue component.
+the SVG into a valid Vue component. This querystring parameter can be changed to anything in
+the webpack config.
